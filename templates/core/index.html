@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+  <div class="row justify-content-center">
+      <div class="col-md-4">
+          <div class="card">
+              <div class="card-header bg-success">
+                  <h3 class="text-light">Khoj The Search</h3>
+                </div>
+              <div class="card-body">
+                  <a href="{% url 'core:khoj' %}" class="btn btn-block btn-outline-success">Khoj</a>
+              </div>
+          </div>
+      </div>
+  </div>
+{% endblock main_content %}
