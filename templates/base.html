@@ -79,7 +79,7 @@
 
                     <div class="text-end">
                         
-                        {% if not request.user.is_authenticated %}
+                        {% if request.user.is_authenticated %}
                         <a href="{% url 'accounts:logout' %}" class="btn btn-outline-success me-2">
                             Logout
                         </a>
@@ -90,20 +90,22 @@
                         {% endif %}
                             
                     
-                        <a href="{% url 'accounts:sign-up' %}" class="btn btn-outline-warning">Sign-up</a>
+                        <a href="{% url 'accounts:sign-up' %}" class="btn btn-outline-warning">Signup</a>
                     </div>
                 </div>
             </div>
         </header>
 
-        <div class="container my-5">
+        <div class="container p-5">
             {% block main_content %}
 
             {% endblock main_content %}
         </div>
-
+        <footer class="p-2 text-center text-muted border-top">
+            Developed by Md. Rahidul Islam &middot; &copy; 2021
+        </footer>
     </main>
-
+    
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 

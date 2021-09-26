@@ -3,14 +3,30 @@
 {% block main_content %}
   <div class="row justify-content-center">
       <div class="col-md-4">
+          
+          {% if request.user.is_authenticated %}
           <div class="card">
-              <div class="card-header bg-success">
-                  <h3 class="text-light">Khoj The Search</h3>
-                </div>
-              <div class="card-body">
-                  <a href="{% url 'core:khoj' %}" class="btn btn-block btn-outline-success">Khoj</a>
+            <div class="card-header bg-success">
+                <h3 class="text-light">Khoj The Search</h3>
               </div>
-          </div>
+            <div class="card-body">
+                <a href="{% url 'core:khoj' %}" class="btn btn-block btn-outline-success">Khoj</a>
+            </div>
+        </div>
+        {% else %}
+            <div class="card">
+                <div class="card-header bg-success">
+                    <h5 class="text-light">Khoj The Search</h5>
+                </div>
+                <div class="card-body">
+                    <p>Please Login/Sign Up</p>
+                    <a href="{% url 'accounts:login' %}" class="btn btn-block btn-outline-info">Login</a>
+                    <a href="{% url 'accounts:sign-up' %}" class="btn btn-block btn-outline-success">Signup</a>
+                </div>
+            </div>
+          {% endif %}
+              
+          
       </div>
   </div>
 {% endblock main_content %}

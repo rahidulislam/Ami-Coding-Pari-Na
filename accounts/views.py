@@ -27,14 +27,17 @@ class SignUpView(View):
 class LoginView(View):
     template_name = 'accounts/login.html'
     def get(self, request):
-        return render(request, self.template_name)
+        if request.user.is_authenticated:
+            return redirect('core:home')
+        else:
+            return render(request, self.template_name)
         
     def post(self, request):
         username = request.POST.get("username", None)
         password = request.POST.get("password", None)
 
         user = authenticate (username = username, password = password)
-        if user:
+        if user is not None:
             login (request, user)
             messages.success(request, "You are logged in successfully")
             return redirect('core:home')
